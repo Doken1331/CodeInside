@@ -8,7 +8,7 @@ import { PictureService } from 'src/app/services/picture.service';
 })
 export class GifComponent implements OnInit {
 
-  public url: string = 'https://cataas.com/cat/KxxO9gprMWpcXD4o?type=or&filter=without';
+  public url: string = this.pictureService.serviceUrl;
   public localArr: any = [];
   public json: any;
   public parsedArr: any;
