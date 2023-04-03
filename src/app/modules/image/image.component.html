@@ -1,0 +1,62 @@
+<section class="box">
+  <h2 class="box__title">Random picture</h2>
+
+  <img class="box__img" [src]="url" alt="img" />
+
+  <form class="box__form" [formGroup]="form" action="">
+    <label class="box__form-label box__form-elem" for="type">Select type</label>
+
+    <select
+      class="box__form-select box__form-elem"
+      formControlName="selectType"
+      id="type"
+      [ngModel]="selectedOptionType"
+      (ngModelChange)="optionType($event)"
+      required
+    >
+      <option value="sm">Small</option>
+      <option value="md">Medium</option>
+      <option value="sq">Square</option>
+      <option value="or">Original</option>
+    </select>
+
+    <label class="box__form-label box__form-elem" for="filter"
+      >Select filter</label
+    >
+
+    <select
+      class="box__form-select box__form-elem"
+      formControlName="selectFilter"
+      id="filter"
+      [(ngModel)]="selectedOptionFilter"
+      (ngModelChange)="optionFilter($event)"
+      required
+    >
+      <option value="without">Without</option>
+      <option value="blur">Blur</option>
+      <option value="mono">Mono</option>
+      <option value="sepia">Sepia</option>
+      <option value="negative">Negative</option>
+      <option value="paint">Paint</option>
+      <option value="pixel">Pixel</option>
+    </select>
+    <button
+      class="box__form-btn box__form-elem"
+      type="button"
+      *ngIf="refreshBoolean"
+      (click)="refreshOldCat()"
+    >
+      Refresh*
+    </button>
+    <button
+      class="box__form-btn box__form-elem"
+      type="button"
+      [disabled]="form.invalid"
+      (click)="getRandomCat()"
+    >
+      Generate
+    </button>
+    <a [routerLink]="'/'" class="box__form-elem">Back :(</a>
+  </form>
+</section>
+<div class="picture"></div>

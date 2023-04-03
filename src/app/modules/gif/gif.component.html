@@ -1,0 +1,25 @@
+<section class="box">
+  <h2 class="box__title">Random gif</h2>
+
+  <img class="box__img" [src]="url" alt="img" />
+
+  <form class="box__form" action="">
+    <button
+      class="box__form-btn box__form-elem"
+      type="button"
+      *ngIf="refreshBoolean"
+      (click)="refreshOldGif()"
+    >
+      Refresh*
+    </button>
+    <button
+      class="box__form-btn box__form-elem"
+      type="button"
+      (click)="getRandomGif()"
+    >
+      Generate
+    </button>
+    <a [routerLink]="'/'" class="box__form-elem">Back :(</a>
+  </form>
+</section>
+<div class="picture"></div>
